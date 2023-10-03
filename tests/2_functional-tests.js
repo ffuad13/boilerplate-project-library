@@ -89,7 +89,7 @@ suite('Functional Tests', function() {
       test('Test GET /api/books/[id] with id not in db',  function(done){
         chai.request(server).get(path+'wrongid').end((err, res) => {
           assert.equal(res.status, 200)
-          assert.equal(res.body, 'no book exist')
+          assert.equal(res.body, 'no book exists')
         })
         done();
       });
@@ -140,7 +140,7 @@ suite('Functional Tests', function() {
         chai.request(server).post(path+'noididid').send({comment: 'This is is'}).end((err, res) => {
           assert.equal(res.status, 200)
           assert.isString(res.body)
-          assert.equal(res.body, 'no book exist')
+          assert.equal(res.body, 'no book exists')
         })
         done();
       });
@@ -162,7 +162,7 @@ suite('Functional Tests', function() {
         chai.request(server).delete(path+'niniidid').end((err, res) => {
           assert.equal(res.status, 200)
           assert.isString(res.body)
-          assert.equal(res.body, 'no book exist')
+          assert.equal(res.body, 'no book exists')
         })
         done();
       });

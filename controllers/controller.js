@@ -25,7 +25,7 @@ function ReadData (req, res) {
 
 function DeleteData (req, res) {
 	data.length = 0
-	res.send('complete delete successfully')
+	res.send('complete delete successful')
 }
 
 function CreateComment (req, res) {
@@ -34,7 +34,7 @@ function CreateComment (req, res) {
 
 	if (!comment) return res.send('missing required field comment')
 	const findBook = data.findIndex((book) => book._id === id.trim())
-	if (findBook < 0) return res.send('no book exist')
+	if (findBook < 0) return res.send('no book exists')
 
 	!data[findBook].comments ? data[findBook].comments = [comment] : data[findBook].comments.push(comment)
 
@@ -45,7 +45,7 @@ function ReadById (req, res) {
 	const {id} = req.params
 
 	const bookData = data.findIndex((book) => book._id === id)
-	if (bookData < 0) return res.send('no book exist')
+	if (bookData < 0) return res.send('no book exists')
 
 	const result = {...data[bookData]}
 	if (!result.comments) result.comments = []
@@ -56,7 +56,7 @@ function ReadById (req, res) {
 function DeleteById (req, res) {
 	const {id} = req.params
 	const findBook = data.findIndex((book) => book._id === id)
-	if (findBook < 0) return res.send('no book exist')
+	if (findBook < 0) return res.send('no book exists')
 
 	data.splice(findBook, 1)
 	res.send('delete successful')
